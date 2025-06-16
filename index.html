@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAEC - CBTis 118</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0e6f2c0.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: url('https://img.freepik.com/foto-gratis/hermosa-ilustracion-planta_23-2151931339.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+
+    .overlay {
+      backdrop-filter: blur(2px);
+      background-color: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 70px 20px 40px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 64px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #8bc34a, #33691e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease-out;
+    }
+
+    header h2 {
+      font-size: 24px;
+      font-weight: 400;
+      color: #c8e6c9;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #a5d6a7;
+    }
+
+    .leaf {
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 40px;
+      color: #81c784;
+      animation: floatLeaf 6s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes floatLeaf {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(25px) rotate(20deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .llamada {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      margin: 0 auto;
+      max-width: 900px;
+      border-radius: 15px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .llamada h2 {
+      font-size: 30px;
+      background: linear-gradient(45deg, #a5d6a7, #8bc34a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .llamada p {
+      font-size: 18px;
+      color: #e8f5e9;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .intro h3 {
+      font-size: 28px;
+      color: #c8e6c9;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #f1f8e9;
+    }
+
+    .opciones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .opcion {
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      padding: 25px;
+      text-align: left;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .opcion:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+    }
+
+    .opcion i.icono-materia {
+      font-size: 18px;
+      margin-right: 12px;
+    }
+
+    .opcion:nth-child(1) i { color: #ffca28; }
+    .opcion:nth-child(2) i { color: #f48fb1; }
+    .opcion:nth-child(3) i { color: #64b5f6; }
+    .opcion:nth-child(4) i { color: #9575cd; }
+    .opcion:nth-child(5) i { color: #4db6ac; }
+    .opcion:nth-child(6) i { color: #ff8a65; }
+
+    section h3 {
+      font-size: 26px;
+      color: #ffe082;
+      margin-top: 50px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #c8e6c9;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      header h1 {
+        font-size: 48px;
+      }
+
+      .opciones {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 40px 10px 20px;
+      }
+
+      header h1 {
+        font-size: 36px;
+      }
+
+      header h2 {
+        font-size: 20px;
+      }
+
+      .llamada h2 {
+        font-size: 24px;
+      }
+
+      .llamada p,
+      .intro p,
+      .opcion {
+        font-size: 16px;
+      }
+
+      .opciones {
+        grid-template-columns: 1fr;
+      }
+
+      .opcion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .opcion i.icono-materia {
+        margin-right: 0;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <div class="leaf"><i class="fas fa-leaf"></i></div>
+      <h1>PAEC</h1>
+      <h2>Separación Responsable de Residuos y Consumo Consciente</h2>
+      <p>Proyecto del CBTis 118</p>
+    </header>
+
+    <div class="llamada">
+      <h2>🌱 Cambiemos el mundo, un residuo a la vez 🌍</h2>
+      <p>Únete al movimiento ecológico del CBTis 118 con PAEC. Reciclar, reusar y reducir empieza contigo.</p>
+    </div>
+
+    <main>
+      <section class="intro">
+        <h3>¿Qué es el Proyecto PAEC?</h3>
+        <p>
+          La comunidad escolar del CBTis 118(estudiantes, personal administrativo y docentes) fomentan en la comunidad cercana al plantel la conciencia y la práctica sobre la separación de residuos sólidos a partir de la difusión, práctica y desarrollo de hábitos de consumo conscientes que disminuyan la generación de dichos residuos tanto en la escuela como en la comunidad.
+        </p>
+      </section>
+
+      <section>
+        <h3>Materias Integradas</h3>
+        <div class="opciones">
+          <a href="matematicas.html" class="opcion">
+            <i class="fas fa-square-root-alt icono-materia"></i> 📐 Pensamiento Matemático II
+          </a>
+                    <a href="lengua.html" class="opcion">
+            <i class="fas fa-book icono-materia"></i> 📖 Lengua y Comunicación II
+          </a>
+
+          <a href="ingles.html" class="opcion">
+            <i class="fas fa-language icono-materia"></i> 🗣️ Inglés II
+          </a>
+
+          <a href="ciencias.html" class="opcion">
+            <i class="fas fa-globe-americas icono-materia"></i> 🌍 Ciencias Sociales II
+          </a>
+
+          <a href="fisica.html" class="opcion">
+            <i class="fas fa-bolt icono-materia"></i> ⚡ Conservación de la energía y su interacción con la materia
+          </a>
+
+          <a href="programacion.html" class="opcion">
+            <i class="fas fa-laptop-code icono-materia"></i> 💻 Programación
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+  &copy; 2025 CBTis 118 - Proyecto PAEC. Todos los derechos reservados.
+  <br><br>
+  <!-- Contador de visitas -->
+  <div id="sfc8s8n2pl17bskej9ygk95x8dhkhe7722t"></div>
+<script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=8s8n2pl17bskej9ygk95x8dhkhe7722t&down=async" async></script>
+<br><a href="https://www.freecounterstat.com">page hit counter</a><noscript><a href="https://www.freecounterstat.com" title="page hit counter"><img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=8s8n2pl17bskej9ygk95x8dhkhe7722t" border="0" title="page hit counter" alt="page hit counter"></a></noscript>
+
+</footer>
+
+  </div>
+</body>
+</html>
